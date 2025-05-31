@@ -1,35 +1,35 @@
-# OpenAI API 테스트 프로젝트
+# LLM을 활용한 AI 에이전트 개발 입문
 
-Poetry를 사용한 OpenAI GPT API 테스트 프로젝트입니다.
+이 프로젝트는 대형 언어 모델(LLM)을 활용한 AI 에이전트 개발의 입문 과정을 담고 있습니다.
 
-## 설치 방법
+## 프로젝트 구조
 
-1. Poetry 설치 (이미 설치되어 있음)
-```
-pip install poetry
-```
+- **[openai-test](./openai-test)**: OpenAI API를 사용한 기본 테스트 프로젝트
+  - GPT 모델 API 호출
+  - 환경 변수를 통한 API 키 관리
+  - Poetry를 이용한 가상환경 설정
 
-2. 의존성 설치
-```
+## 개발 환경
+
+- Python 3.13+
+- Poetry (패키지 및 가상환경 관리)
+- Windows 10/11
+
+## 시작하기
+
+각 하위 프로젝트 폴더의 README.md 파일을 참조하여 개별 프로젝트를 실행할 수 있습니다.
+
+```bash
+# openai-test 프로젝트 실행 예시
+cd openai-test
 python -m poetry install
-```
-
-## 환경 변수 설정
-
-1. `.env-example` 파일을 복사하여 `.env` 파일 생성
-```
-copy .env-example .env
-```
-
-2. `.env` 파일을 열고 `OPENAI_API_KEY` 값을 실제 OpenAI API 키로 변경
-```
-# OpenAI API 키
-OPENAI_API_KEY=your-api-key-here
-```
-
-## 실행 방법
-
-Poetry 가상환경에서 스크립트 실행:
-```
+# .env 파일 설정 후
 python -m poetry run python gpt_api_test.py
-``` 
+```
+
+## 앞으로의 계획
+
+- 다양한 LLM 모델 탐색
+- 간단한 AI 에이전트 구현
+- 특정 도메인에 특화된 에이전트 개발
+- 멀티모달 기능 추가 
