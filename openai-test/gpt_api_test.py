@@ -1,4 +1,4 @@
-import openai
+from openai import OpenAI
 import os
 from dotenv import load_dotenv
 import json
@@ -14,16 +14,16 @@ if not api_key:
     print("OPENAI_API_KEY=your-api-key-here")
     exit(1)
 
-# API 키 설정
-openai.api_key = api_key
+# OpenAI 클라이언트 초기화
+client = OpenAI(api_key=api_key)
 
 def test_openai_api():
     try:
         # GPT 모델 API 호출
         print("OpenAI API에 요청을 보내는 중...")
         
-        response = openai.ChatCompletion.create(
-            model="gpt-4o-mini",
+        response = client.chat.completions.create(
+            model="gpt-4o",
             temperature=1, # 무작위성 조절, 실제론 나온 확률을 나누니까 1이면 그대로, 그 외는 무작위성 커짐
             messages=[ # 과거 대화 기반 적절한 응답에 필요한 매개변수
                 {"role": "system", "content": "You are a helpful assistant."}, # 시스템 메시지, 모델의 행동 방식 정의
@@ -36,7 +36,7 @@ def test_openai_api():
         print("API 응답 원본 데이터:")
         print("="*50)
         # 보기 좋게 JSON 형태로 출력
-        print(json.dumps(response, indent=2))
+        print(json.dumps(response.model_dump(), indent=2))
         
         # 응답 내용만 출력
         print("\n" + "="*50)

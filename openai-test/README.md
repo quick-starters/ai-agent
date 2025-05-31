@@ -1,20 +1,22 @@
 # OpenAI API 테스트 프로젝트
 
-Poetry를 사용한 OpenAI GPT API 테스트 프로젝트입니다.
+OpenAI GPT API를 테스트하는 프로젝트입니다.
 
-## 설치 방법
+## 실행 방법
 
-1. Poetry 설치 (이미 설치되어 있지 않은 경우)
-```
-pip install poetry
-```
+이 프로젝트는 루트 디렉토리의 Poetry 가상환경을 사용합니다.
 
-2. 의존성 설치
-```
+### 가상환경 설정 (루트 디렉토리에서 실행)
+
+```bash
+# 루트 디렉토리로 이동
+cd ..
+
+# 의존성 설치
 python -m poetry install
 ```
 
-## 환경 변수 설정
+### 환경 변수 설정
 
 1. `.env-example` 파일을 복사하여 `.env` 파일 생성
 ```
@@ -27,11 +29,16 @@ copy .env-example .env
 OPENAI_API_KEY=your-api-key-here
 ```
 
-## 실행 방법
+### 스크립트 실행
 
-Poetry 가상환경에서 스크립트 실행:
+현재 디렉토리에서:
 ```
 python -m poetry run python gpt_api_test.py
+```
+
+또는 루트 디렉토리에서:
+```
+python -m poetry run python openai-test/gpt_api_test.py
 ```
 
 ## 주요 기능
