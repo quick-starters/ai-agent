@@ -1,6 +1,7 @@
 import openai
 import os
 from dotenv import load_dotenv
+import json
 
 # .env 파일에서 환경 변수 로드
 load_dotenv()
@@ -30,9 +31,18 @@ def test_openai_api():
             ]
         )
         
-        # 응답 출력
-        print("\n응답 결과:")
-        print(response.choices[0].message.content.strip())
+        # 원본 응답 출력
+        print("\n" + "="*50)
+        print("API 응답 원본 데이터:")
+        print("="*50)
+        # 보기 좋게 JSON 형태로 출력
+        print(json.dumps(response, indent=2))
+        
+        # 응답 내용만 출력
+        print("\n" + "="*50)
+        print("응답 내용:")
+        print("="*50)
+        print(response.choices[0].message.content)
         
     except Exception as e:
         print(f"오류 발생: {e}")
